@@ -1,0 +1,13 @@
+50,51c50,54
+<     echo "Firmware already created. Please delete $FW_TARGETDIR folder if you want a fresh installation."
+<     exit 1
+---
+>     if [ "$(ls -A $FW_TARGETDIR)" ]; then
+>         echo "Firmware already created. Please delete $FW_TARGETDIR folder if you want a fresh installation."
+>         exit 1
+>     fi
+>     echo "Empty firmware directory is found. continue to creating firmware."
+64c67
+< mkdir $FW_TARGETDIR
+---
+> mkdir -p $FW_TARGETDIR
